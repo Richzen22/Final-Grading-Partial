@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>KalingaPH – Mental health help you can trust</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3f7f6;--paper:#fff;--ink:#12283a;--mute:#4a5f6e;--line:#cdd9d7;--brand:#0e6b63;--brandInk:#fff;--soft:#e2efec;--crisis:#12283a;--crisisInk:#fff;--sun:#f4b942;--focus:#0e6b63;
+--head:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;--body:"Figtree",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1a22;--paper:#15262f;--ink:#e9f2f1;--mute:#a8bcc4;--line:#2b414c;--brand:#5fd0c3;--brandInk:#06201d;--soft:#173038;--crisis:#f4b942;--crisisInk:#1d1500;--focus:#5fd0c3;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0d1a22;--paper:#15262f;--ink:#e9f2f1;--mute:#a8bcc4;--line:#2b414c;--brand:#5fd0c3;--brandInk:#06201d;--soft:#173038;--crisis:#f4b942;--crisisInk:#1d1500;--focus:#5fd0c3;color-scheme:dark}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px)}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 var(--body)}
+a{color:var(--brand)}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+.skip{position:absolute;left:-999px}.skip:focus{left:8px;top:8px;z-index:20;background:var(--paper);padding:10px;border:2px solid var(--ink)}
+.crisisbar{background:var(--crisis);color:var(--crisisInk);font-size:.95rem}
+.crisisbar .wrap{display:flex;gap:8px 16px;flex-wrap:wrap;justify-content:space-between;align-items:center;padding-top:9px;padding-bottom:9px}
+.crisisbar a{color:inherit;font-weight:700}
+header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--paper);border-bottom:1px solid var(--line)}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:10px;padding-bottom:10px}
+.logo{font:800 1.4rem/1 var(--head);color:var(--ink);text-decoration:none;letter-spacing:-.02em}
+.logo span{color:var(--brand)}
+nav.main{display:flex;gap:4px 18px;flex-wrap:wrap;align-items:center}
+nav.main a{color:var(--ink);text-decoration:none;font-weight:500;padding:8px 2px;min-height:44px;display:inline-flex;align-items:center}
+nav.main a:hover{color:var(--brand)}
+.tbtn{min-height:44px;min-width:44px;padding:6px 12px;border:1px solid var(--line);border-radius:999px;background:transparent;color:var(--ink);font:inherit;font-size:.9rem;cursor:pointer}
+.hero{padding:56px 0 48px}
+.hero .wrap{display:grid;gap:36px;grid-template-columns:1fr}
+@media(min-width:860px){.hero .wrap{grid-template-columns:1.15fr .85fr;align-items:start}}
+h1{font:800 clamp(2.2rem,5.5vw,3.6rem)/1.05 var(--head);letter-spacing:-.03em;margin:0 0 16px}
+h2{font:800 clamp(1.6rem,3.5vw,2.2rem)/1.15 var(--head);letter-spacing:-.02em;margin:0 0 10px}
+h3{font:700 1.2rem/1.3 var(--head);margin:0 0 6px}
+.lead{font-size:1.2rem;color:var(--mute);max-width:34em;margin:0 0 24px}
+.search{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px;display:grid;gap:12px}
+.search label{font-weight:700;font-size:.9rem;display:block;margin-bottom:4px}
+input[type=text],input[type=search]{width:100%;min-height:48px;padding:10px 14px;border:1px solid var(--mute);border-radius:10px;background:var(--bg);color:var(--ink);font:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:10px 22px;border-radius:10px;border:2px solid var(--brand);background:transparent;color:var(--brand);font:700 1rem var(--body);text-decoration:none;cursor:pointer}
+.btn.primary{background:var(--brand);color:var(--brandInk)}
+.quick{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.quick a{padding:6px 14px;border:1px solid var(--line);border-radius:999px;text-decoration:none;color:var(--ink);background:var(--paper);min-height:36px;display:inline-flex;align-items:center;font-size:.92rem}
+.now{background:var(--crisis);color:var(--crisisInk);border-radius:20px;padding:26px}
+.now h2{margin-bottom:6px}
+.now .big{display:block;font:800 clamp(2.6rem,7vw,3.8rem)/1 var(--head);color:inherit;text-decoration:none;margin:10px 0 4px;letter-spacing:-.03em}
+.now p{margin:0 0 14px;opacity:.92}
+.now .btn{border-color:currentColor;color:inherit;width:100%}
+section.block{padding:52px 0;border-top:1px solid var(--line)}
+section.block.alt{background:var(--soft)}
+.steps{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:22px;padding:0;list-style:none}
+.steps li{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px}
+.steps p{margin:0;color:var(--mute)}
+.lines{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));margin:20px 0}
+.line{display:flex;flex-direction:column;gap:2px;padding:16px 18px;border-radius:14px;background:var(--crisis);color:var(--crisisInk);text-decoration:none;font-weight:700;min-height:64px;justify-content:center}
+.line small{font-weight:500;opacity:.85}
+details{background:var(--paper);border:1px solid var(--line);border-radius:12px;margin-top:10px}
+summary{padding:14px 18px;min-height:48px;cursor:pointer;font-weight:700}
+details p{margin:0;padding:0 18px 16px;color:var(--mute)}
+.bar{display:flex;flex-wrap:wrap;gap:12px;align-items:end;margin:18px 0 6px}
+.bar .grow{flex:1 1 260px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{min-height:44px;padding:6px 16px;border:1px solid var(--mute);border-radius:999px;background:var(--paper);color:var(--ink);font:500 .95rem var(--body);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--brand);border-color:var(--brand);color:var(--brandInk);font-weight:700}
+#count{margin:14px 0 0;font-weight:700}
+#list{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));margin-top:12px;padding:0;list-style:none}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:8px}
+.card p{margin:0;color:var(--mute);font-size:.95rem}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:.8rem;font-weight:700;padding:2px 10px;border-radius:999px;background:var(--soft);color:var(--ink)}
+.card .btn{margin-top:auto;min-height:44px;align-self:flex-start}
+.empty{padding:24px;border:2px dashed var(--line);border-radius:14px;text-align:center}
+.verify{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:20px}
+.verify div{border-left:4px solid var(--brand);padding:4px 0 4px 14px}
+.verify p{margin:0;color:var(--mute)}
+footer.site{background:var(--paper);border-top:1px solid var(--line);padding:32px 0;color:var(--mute);font-size:.95rem}
+footer.site .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between}
+footer.site a{color:var(--ink);margin-right:16px}
+select{min-height:48px;padding:10px 14px;border:1px solid var(--mute);border-radius:10px;background:var(--bg);color:var(--ink);font:inherit}
+dialog{max-height:90vh;overflow:auto;max-width:520px;width:calc(100% - 32px);border:1px solid var(--line);border-radius:16px;background:var(--paper);color:var(--ink);padding:22px}
+dialog::backdrop{background:rgba(0,0,0,.55)}
+dl{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin:14px 0}
+dt{font-weight:700}dd{margin:0;color:var(--mute)}
+.dact{display:flex;flex-wrap:wrap;gap:10px}
+.links{display:flex;flex-direction:column;gap:6px}
+.links a{font-weight:700;overflow-wrap:anywhere}
+.acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto}
+.acts .btn{margin:0}
+@media print{.crisisbar,header.site,.hero,#find,#about,footer.site{display:none}#crisis{border:0}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="crisisbar"><div class="wrap"><span>In crisis or worried about someone?</span><a href="#crisis">Get crisis help: call 1553</a></div></div>
+
+<header class="site"><div class="wrap">
+<a class="logo" href="#top">Kalinga<span>PH</span></a>
+<nav class="main" aria-label="Main">
+<a href="#find">Find help</a><a href="#crisis">Crisis help</a><a href="#about">About the listings</a>
+<button class="tbtn" id="mode" type="button" aria-label="Switch light or dark mode">Light / dark</button>
+</nav></div></header>
+
+<main id="main">
+<section class="hero" id="top"><div class="wrap">
+<div>
+<h1>Find mental health help you can trust.</h1>
+<p class="lead">Search counseling, support groups, and clinics across the Philippines. Listings come from public sources. Call to confirm hours and fees before you go.</p>
+<form class="search" id="homeForm" aria-label="Search for help">
+<div><label for="kind">What kind of help?</label><input id="kind" type="text" placeholder="Counseling, support group…"></div>
+<div><label for="where">Where?</label><input id="where" type="text" placeholder="City or province"></div>
+<button class="btn primary" type="submit">Search listings</button>
+<div class="quick" aria-label="Quick filters"><a href="#find" data-quick="free">Free</a><a href="#find" data-quick="online">Online</a><a href="#find" data-quick="hotline">24/7 hotline</a></div>
+</form>
+</div>
+<aside class="now" aria-labelledby="nowh">
+<h2 id="nowh">Need to talk now?</h2>
+<p>Call the toll-free crisis line. A trained person will listen.</p>
+<a class="big" href="tel:1553">1553</a>
+<p>In immediate danger? Call 911.</p>
+<a class="btn" href="#crisis">See all crisis numbers</a>
+</aside>
+</div></section>
+
+<section class="block" id="find"><div class="wrap">
+<h2>Find help</h2>
+<p class="lead" style="margin-bottom:0">Narrow the list by what you need. If you are in danger right now, call 911.</p>
+<div class="bar">
+<div class="grow"><label for="q" style="font-weight:700;font-size:.9rem;display:block;margin-bottom:4px">Search</label><input id="q" type="search" placeholder="Search by name or city"></div>
+<div><label for="place" style="font-weight:700;font-size:.9rem;display:block;margin-bottom:4px">Where are you?</label><select id="place"><option value="">All places</option></select></div>
+<div class="chips" role="group" aria-label="Filters">
+<button class="chip" type="button" aria-pressed="false" data-f="free">Free</button>
+<button class="chip" type="button" aria-pressed="false" data-f="lowcost">Low cost</button>
+<button class="chip" type="button" aria-pressed="false" data-f="online">Online</button>
+<button class="chip" type="button" aria-pressed="false" data-f="person">In person</button>
+<button class="chip" type="button" aria-pressed="false" data-f="hotline">24/7 hotline</button>
+</div></div>
+<p id="count" role="status" aria-live="polite"></p>
+<ul id="list"></ul>
+<div id="none" class="empty" hidden><p style="margin:0 0 12px">No matches. Clear a filter or try a different word.</p><button class="btn" id="clear" type="button">Clear filters</button></div>
+</div></section>
+
+<section class="block alt" id="crisis"><div class="wrap">
+<h2>Crisis help</h2>
+<p class="lead" style="margin-bottom:0">If you are in danger right now, call 911. For emotional crisis or suicidal thoughts, call one of these lines. You do not need to know what to say first.</p>
+<div class="lines">
+<a class="line" href="tel:1553">Call 1553<small>Toll-free</small></a>
+<a class="line" href="tel:+639190571553">Call 0919-057-1553<small>Smart/TNT</small></a>
+<a class="line" href="tel:+639178998727">Call 0917-899-8727<small>Globe/TM</small></a>
+<a class="line" href="tel:+639663514518">Call 0966-351-4518<small>Globe/TM</small></a>
+</div>
+<details><summary>What to expect when you call</summary><p>A trained person listens, asks how you are, and helps you with next steps.</p></details>
+<details><summary>Helping someone else</summary><p>Stay with them, listen without judging, and help them call a hotline. If they are in immediate danger, call 911.</p></details>
+<p style="margin-top:20px"><button class="btn" type="button" onclick="window.print()">Print wallet card</button></p>
+<p style="font-size:.9rem;color:var(--mute)">These numbers are NCMH Crisis Hotline lines. Re-check them before relying on this page.</p>
+</div></section>
+
+<section class="block" id="about"><div class="wrap">
+<h2>About the listings</h2>
+<div class="verify">
+<div><h3>Public sources</h3><p>Details come from government, hospital, and nonprofit pages and news reports, checked in November 2026.</p></div>
+<div><h3>Confirm before you go</h3><p>Hours, fees, and numbers change. Call or message first, especially to book an appointment.</p></div>
+<div><h3>Not medical advice</h3><p>This site helps you find services. It does not diagnose or replace care from a professional.</p></div>
+</div>
+</div></section>
+</main>
+
+<footer class="site"><div class="wrap">
+<div><strong style="color:var(--ink)">KalingaPH</strong><br>Plain HTML. Works on slow connections.</div>
+<div><a href="#about">About</a><a href="#top">Privacy</a><a href="#top">Accessibility</a></div>
+</div></footer>
+
+<dialog id="dlg" aria-labelledby="dtitle">
+<h3 id="dtitle"></h3><div class="tags" id="dtags"></div><dl id="dbody"></dl>
+<p style="font-size:.9rem;color:var(--mute);margin:0 0 14px">Information from public sources, November 2026. Confirm by phone before you go. In danger now? Call 911.</p>
+<div class="dact"><button class="btn primary" id="dclose" type="button">Close</button></div>
+</dialog>
+
+<script>
+(function(){
+var DATA=[
+{n:"NCMH Crisis Hotline",c:"Nationwide (phone)",r:"Nationwide",t:["free","hotline"],
+d:"Free, confidential crisis line of the National Center for Mental Health. Trained staff take calls about suicidal thoughts, anxiety, and other emotional crises.",
+hrs:"24 hours, every day",cost:"Free",how:"Call from any phone. 1553 is toll-free from landlines in Luzon. Use the mobile numbers if you are on Smart or Globe.",
+ph:[["1553 (landline, toll-free in Luzon)","1553"],["1800-1888-1553 (Smart/TNT)","180018881553"],["0919-057-1553 (Smart/TNT)","+639190571553"],["0917-899-8727 (Globe/TM)","+639178998727"],["0966-351-4518 (Globe/TM)","+639663514518"]],
+web:[["ncmh.gov.ph","https://www.ncmh.gov.ph"]]},
+{n:"Hopeline Philippines",c:"Nationwide (phone)",r:"Nationwide",t:["free","hotline"],
+d:"Emotional crisis and suicide prevention line of the Natasha Goulbourn Foundation. Offers active listening and referrals.",
+hrs:"24 hours, every day",cost:"Free",how:"Call the number for your network.",
+ph:[["2919 (Globe/TM)","2919"],["(02) 8804-4673 (PLDT landline)","+63288044673"],["0917-558-4673 (Globe)","+639175584673"],["0918-873-4673 (Smart)","+639188734673"]],
+web:[["Hopeline on Facebook","https://www.facebook.com/HopelinePH"]]},
+{n:"In Touch crisis line",c:"Nationwide (phone)",r:"Nationwide",t:["free","hotline"],
+d:"Free emotional crisis line from In Touch Community Services, a nonprofit that has run for over 40 years.",
+hrs:"24 hours, every day",cost:"Free",how:"Call the number for your network.",
+ph:[["0917-800-1123 (Globe)","+639178001123"],["0919-056-0709 (Smart)","+639190560709"],["0922-893-8944","+639228938944"],["(02) 8893-7603 (landline)","+63288937603"]],
+web:[["in-touch.org","https://in-touch.org"]]},
+{n:"Tawag Paglaum – Centro Bisaya",c:"Cebu and Central Visayas (phone)",r:"Cebu & Central Visayas",t:["hotline"],
+d:"Regional crisis line based in Cebu for emotional and suicidal crises.",
+hrs:"24 hours, every day",cost:"Not stated",how:"Call any of the numbers below.",
+ph:[["0966-467-9626","+639664679626"],["0939-937-5433 (Smart/Sun)","+639399375433"],["0927-654-1629 (Globe/TM)","+639276541629"]],
+note:"Sources list slightly different numbers. If one does not connect, try another."},
+{n:"DepEd helpline 33733",c:"Nationwide (phone)",r:"Nationwide",t:["hotline","students"],
+d:"DepEd helpline for students facing abuse or bullying. It can now connect callers in distress to NCMH specialists.",
+how:"Call 33733. For immediate crisis help you can also call NCMH at 1553.",
+ph:[["33733","33733"]]},
+{n:"Taguig Mental Health Support Services",c:"Taguig City (phone)",r:"Metro Manila",t:["hotline"],
+d:"City mental health support line, listed in a 2024 government circular.",
+hrs:"Daily. One number from 6 AM to 6 PM, another from 6 PM to 6 AM",how:"Call the number for the time of day.",
+ph:[["0929-521-8373 (6 AM to 6 PM)","+639295218373"],["0967-039-3456 (6 PM to 6 AM)","+639670393456"]]},
+{n:"NCMH Outpatient Section",c:"Mandaluyong City",r:"Metro Manila",t:["free","lowcost","person","online"],
+d:"The country’s main government psychiatric hospital. Offers psychiatric evaluation, psychotherapy, medication management, and psychological assessment, in person or online.",
+addr:"Pavilion 2, Nueve de Pebrero Street, Barangay Mauway, Mandaluyong City",
+hrs:"By appointment. The online consultation form opens at 8 AM on working days and closes when that day’s slots are full.",
+cost:"Free and low-cost options. A paid consultation has been listed at about ₱400. Ask about the free route when you register.",
+how:"Register online first. Use the e-schedule link for in-person visits or the E-Konsulta link for online visits. First-time patients should bring a valid government ID and any medical history.",
+ph:[["(02) 8531-9001, local 301 or 304","+63285319001"],["Emergency Section (02) 8531-5275","+63285315275"]],
+em:["pacd@ncmh.gov.ph","mcc@ncmh.gov.ph"],
+web:[["In-person e-schedule","https://bit.ly/ncmhopseschedule"],["Online E-Konsulta","https://bit.ly/ncmhonlinekonsulta"],["ncmh.gov.ph","https://www.ncmh.gov.ph"],["NCMH Outpatient on Facebook","https://www.facebook.com/ncmhops"]],
+note:"Waits for public services can be long. If you need help now, call 1553."},
+{n:"UP-PGH Psychiatry and Behavioral Medicine",c:"Manila",r:"Metro Manila",t:["lowcost","person"],
+d:"Psychiatric consultations at the Philippine General Hospital, with a charity option and a paid private option.",
+addr:"Taft Avenue, Ermita, Manila. Charity consultations are at OPD Room 301.",
+hrs:"Registration and booking Monday to Friday",cost:"Charity and paid options",
+how:"Charity: register online and wait for confirmation. Paid: book the Neuropsychiatry Clinic at the Faculty of Medical Arts Building by phone.",
+ph:[["(02) 8708-0000, local 121 (paid clinic booking)","+63287080000"]],
+web:[["Online registration","http://www.pghopd.up.edu.ph"],["Department on Facebook","https://www.facebook.com/uppgh.dpbm"]]},
+{n:"Philippine Mental Health Association",c:"Quezon City",r:"Metro Manila",t:["lowcost","person","online"],
+d:"Psychological first aid, screenings, and outpatient psychological and psychiatric care for children, teens, and adults.",
+addr:"18 East Avenue, Diliman, Quezon City",cost:"Fees vary. A free consultation may be available.",
+how:"Call, email, or use the support chat on the website.",
+ph:[["(02) 8921-3957","+63289213957"],["(02) 8921-4958 (alternate number)","+63289214958"]],
+em:["hello@pmha.org.ph"],web:[["pmha.org.ph","https://www.pmha.org.ph"],["PMHA on Facebook","https://www.facebook.com/PMHAofficial"]]},
+{n:"Amang Rodriguez Memorial Medical Center, Acute Psychiatric Unit",c:"Marikina City",r:"Metro Manila",t:["lowcost","person","online"],
+d:"Government hospital unit for adults. Offers outpatient consultations, psychological testing, and emergency psychiatric care.",
+addr:"Sumulong Highway, Marikina City",hrs:"Outpatient: Monday to Friday, 8 AM to 5 PM, except holidays",
+cost:"Sliding scale, reduced or pro-bono rates, or PhilHealth coverage",how:"Call for inquiries and teleconsultation.",
+ph:[["(02) 8941-5854","+63289415854"],["(02) 8941-6289","+63289416289"]],
+web:[["armmc.doh.gov.ph","https://armmc.doh.gov.ph"],["ARMMC on Facebook","https://www.facebook.com/OfficialARMMC"]]},
+{n:"Caloocan City Calm Space",c:"Caloocan City",r:"Metro Manila",t:["free","person"],
+d:"Free professional consultations and screenings, plus wellness sessions such as sound healing, Tai Chi, and yoga.",
+addr:"5th floor, New Caloocan City Hall-South",hrs:"Free screening Monday to Thursday, 8 AM to 4 PM",cost:"Free",
+how:"Email or call to set an appointment.",
+ph:[["0949-943-4669","+639499434669"],["0949-963-6418","+639499636418"],["0949-959-7897","+639499597897"],["0949-986-1907","+639499861907"]],
+em:["calmspace2.chd@gmail.com"],web:[["Calm Space on Facebook","https://www.facebook.com/CalmSpaceCaloocan"]]},
+{n:"UST Psychotrauma Clinic",c:"Manila (Sampaloc)",r:"Metro Manila",t:["person"],
+d:"Counseling, psychotherapy, workshops, and crisis response at the University of Santo Tomas.",
+addr:"Thomas Aquinas Research Complex, University of Santo Tomas",how:"Email the clinic to ask about appointments and fees.",
+em:["psychtrauma@ust.edu.ph"]},
+{n:"In Touch counseling and therapy",c:"Online and in person",r:"Online",t:["lowcost","online","person"],
+d:"Professional online therapy and face-to-face counseling from In Touch Community Services.",
+cost:"Fees can be adjusted to your budget",how:"Book with the online form on the website, or call the office and press 1.",
+ph:[["(02) 8893-1893","+6328931893"],["0917-863-1136 (Globe)","+639178631136"],["0998-841-0053 (Smart)","+639988410053"]],
+web:[["Booking form at in-touch.org","https://in-touch.org"]]},
+{n:"Ateneo Bulatao Center, Brief Psychological Services",c:"Online",r:"Online",t:["free","online"],
+d:"One to two free online sessions of counseling and psychological first aid, for working through a pressing concern.",
+cost:"Free",how:"Sign up with the online registration form. For longer-term therapy, email the center about paid services.",
+em:["bulataocenter.ls@ateneo.edu"],
+web:[["Registration form","https://docs.google.com/forms/d/e/1FAIpQLSdeWIcCmy2Ilmfcbp-9sdwU7JE8YiyxaP1Oij0lBSnbS2r_GQ/viewform"],["Bulatao Center on Facebook","https://www.facebook.com/BulataoCenter"]],
+note:"Not for emergencies or long-term therapy. If you need help now, call 1553 or 911."}];
+var LBL={free:"Free",lowcost:"Low cost",online:"Online",person:"In person",hotline:"24/7 hotline",students:"Students"};
+var list=document.getElementById('list'),q=document.getElementById('q'),place=document.getElementById('place'),count=document.getElementById('count'),none=document.getElementById('none'),chips=document.querySelectorAll('[data-f]'),dlg=document.getElementById('dlg');
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+var regions=[];DATA.forEach(function(x){if(x.r!=="Nationwide"&&x.r!=="Online"&&regions.indexOf(x.r)<0)regions.push(x.r)});regions.sort();
+place.innerHTML='<option value="">All of the Philippines</option>'+regions.map(function(c){return '<option>'+esc(c)+'</option>'}).join('');
+function tags(x){return x.t.map(function(t){return '<span class="tag">'+LBL[t]+'</span>'}).join('')}
+function run(){
+var on=[];chips.forEach(function(c){if(c.getAttribute('aria-pressed')==='true')on.push(c.dataset.f)});
+var words=q.value.toLowerCase().split(/\s+/).filter(Boolean),loc=place.value;
+var out=DATA.filter(function(x){
+var hay=(x.n+' '+x.c+' '+x.r+' '+x.d+' '+(x.addr||'')+' '+x.t.map(function(t){return LBL[t]}).join(' ')).toLowerCase();
+return on.every(function(f){return x.t.indexOf(f)>-1})&&(!loc||x.r===loc||x.r==="Nationwide"||x.r==="Online")&&words.every(function(w){return hay.indexOf(w)>-1})});
+list.innerHTML=out.map(function(x){
+var call=(x.t.indexOf('hotline')>-1&&x.ph)?'<a class="btn primary" href="tel:'+x.ph[0][1]+'">Call '+esc(x.ph[0][0].split(' ')[0])+'</a>':'';
+return '<li class="card"><h3>'+esc(x.n)+'</h3><div class="tags">'+tags(x)+'</div><p>'+esc(x.c)+'. '+esc(x.d)+'</p><div class="acts">'+call+'<button class="btn" type="button" data-i="'+DATA.indexOf(x)+'">See details</button></div></li>'}).join('');
+count.textContent=out.length+(out.length===1?' place':' places')+' to get help';
+none.hidden=out.length>0}
+function row(k,v){return v?'<dt>'+k+'</dt><dd>'+v+'</dd>':''}
+function links(a,fn){return a&&a.length?'<div class="links">'+a.map(fn).join('')+'</div>':''}
+function openDetails(i){var x=DATA[i];
+document.getElementById('dtitle').textContent=x.n;
+document.getElementById('dtags').innerHTML=tags(x);
+document.getElementById('dbody').innerHTML=
+row('About',esc(x.d))+row('Where',esc(x.c)+(x.addr?'<br>'+esc(x.addr):''))+row('Hours',x.hrs&&esc(x.hrs))+row('Cost',x.cost&&esc(x.cost))+row('How to get help',x.how&&esc(x.how))+
+row('Call',links(x.ph,function(p){return '<a href="tel:'+p[1]+'">'+esc(p[0])+'</a>'}))+
+row('Email',links(x.em,function(m){return '<a href="mailto:'+m+'">'+esc(m)+'</a>'}))+
+row('Online',links(x.web,function(w){return '<a href="'+w[1]+'" target="_blank" rel="noopener">'+esc(w[0])+'</a>'}))+
+row('Good to know',x.note&&esc(x.note));
+dlg.showModal();dlg.scrollTop=0}
+list.addEventListener('click',function(e){var b=e.target.closest('[data-i]');if(b)openDetails(+b.dataset.i)});
+document.getElementById('dclose').addEventListener('click',function(){dlg.close()});
+dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close()});
+chips.forEach(function(c){c.addEventListener('click',function(){c.setAttribute('aria-pressed',c.getAttribute('aria-pressed')==='true'?'false':'true');run()})});
+q.addEventListener('input',run);place.addEventListener('change',run);
+document.getElementById('clear').addEventListener('click',function(){q.value='';place.value='';chips.forEach(function(c){c.setAttribute('aria-pressed','false')});run()});
+document.getElementById('homeForm').addEventListener('submit',function(e){e.preventDefault();
+var w=document.getElementById('where').value.trim().toLowerCase();place.value='';
+regions.forEach(function(c){if(w&&c.toLowerCase()===w)place.value=c});
+q.value=(document.getElementById('kind').value+(place.value?'':' '+w)).trim();run();location.hash='find'});
+document.querySelectorAll('[data-quick]').forEach(function(a){a.addEventListener('click',function(){chips.forEach(function(c){if(c.dataset.f===a.dataset.quick)c.setAttribute('aria-pressed','true')});run()})});
+document.getElementById('mode').addEventListener('click',function(){var r=document.documentElement,d=r.dataset.theme?r.dataset.theme==='dark':matchMedia('(prefers-color-scheme:dark)').matches;r.dataset.theme=d?'light':'dark'});
+run();
+})();
+</script>
+</body>
+</html>
